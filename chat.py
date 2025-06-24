@@ -7,12 +7,15 @@ def response_genrator(prompt):
         "microsoft/Phi-3-mini-4k-instruct",
         token="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",
     )
-
+try:
     response = "".join(message.choices[0].delta.content for message in client.chat_completion(
         messages = [{"role":"user","content":prompt}],
         max_tokens = 500,
-        stream=True,
-    )) # type: ignore
+        stream=False,
+        
+    )except Exception as e:
+    st.error(f"❌ Hugging Face Error: {str(e)}")
+) # type: ignore
     return response
 st.title("Simple Chat")
 
