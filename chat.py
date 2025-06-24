@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 def response_genrator(prompt):
     client = InferenceClient(
         "microsoft/Phi-3-mini-4k-instruct",
-        token="hf_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        token="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",
     )
 
     response = "".join(message.choices[0].delta.content for message in client.chat_completion(
